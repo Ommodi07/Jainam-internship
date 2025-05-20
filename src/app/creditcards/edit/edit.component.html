@@ -1,0 +1,90 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ isEditMode ? 'Edit Credit Card' : 'Add Credit Card' }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+
+            <input type="hidden" formControlName="id">
+
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <mat-label>Credit Card Name</mat-label>
+                    <input matInput placeholder="Credit Card Name" formControlName="name">
+                    <mat-error *ngIf="creditCardForm.get('name')?.hasError('required')">Name is required</mat-error>
+                    <mat-error *ngIf="creditCardForm.get('name')?.hasError('minlength')">Min length is 3</mat-error>
+                    <mat-error *ngIf="creditCardForm.get('name')?.hasError('maxlength')">Max length is 20</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <mat-label>Description</mat-label>
+                    <input matInput placeholder="Description" formControlName="description">
+                    <mat-error *ngIf="creditCardForm.get('description')?.hasError('required')">Description is
+                        required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <mat-label>Bank Name</mat-label>
+                    <input matInput placeholder="Bank Name" formControlName="bankName">
+                    <mat-error *ngIf="creditCardForm.get('bankName')?.hasError('required')">Bank name is
+                        required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <mat-label>Max Credit</mat-label>
+                    <input matInput type="number" formControlName="maxCredit">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <mat-label>Interest Rate</mat-label>
+                    <input matInput type="number" formControlName="interestRate">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <mat-label>Recommended Score</mat-label>
+                    <mat-select formControlName="recommendedScore">
+                        <mat-option value="100-500">100-500</mat-option>
+                        <mat-option value="500-700">500-700</mat-option>
+                        <mat-option value="700-900">700-900</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <mat-label>Annual Fee</mat-label>
+                    <input matInput type="number" formControlName="annualFee">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field appearance="fill" class="half-width">
+                    <mat-label>Terms and Conditions</mat-label>
+                    <textarea matInput formControlName="termsAndConditions"></textarea>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-checkbox formControlName="active">
+                    Active
+                </mat-checkbox>
+            </div>
+
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="!creditCardForm.valid">
+                {{ isEditMode ? 'Update Credit Card' : 'Add Credit Card' }}
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

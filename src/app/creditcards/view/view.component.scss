@@ -1,0 +1,49 @@
+.credit-card-detail-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bank-icon {
+  font-size: 36px;
+  color: #3f51b5;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.card-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.card-detail-content {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.1rem;
+}
+
+.card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+mat-chip {
+  font-weight: 500;
+}
