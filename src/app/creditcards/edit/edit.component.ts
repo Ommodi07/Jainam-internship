@@ -37,13 +37,12 @@ export class EditComponent implements OnInit, OnDestroy {
       recommendedScore: ['100-500', Validators.required],
       annualFee: ['', Validators.required],
       termsAndConditions: ['', Validators.required],
-      createdDate: [''],
-      updatedDate: ['']
     });
   }
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get("id");
+    console.log(idParam);
 
     if (idParam && !isNaN(+idParam)) {
       this.isEditMode = true;
@@ -58,9 +57,7 @@ export class EditComponent implements OnInit, OnDestroy {
       this.isEditMode = false;
       const now = new Date().toISOString();
       this.creditCardForm.patchValue({
-        id: Date.now().toString(),
-        createdDate: now,
-        updatedDate: now
+        id: Date.now().toString()
       });
     }
   }
@@ -69,8 +66,7 @@ export class EditComponent implements OnInit, OnDestroy {
     if (this.creditCardForm.invalid) return;
 
     const formData: CreditCard = {
-      ...this.creditCardForm.value,
-      updatedDate: new Date().toISOString()
+      ...this.creditCardForm.value
     };
 
     if (this.isEditMode) {

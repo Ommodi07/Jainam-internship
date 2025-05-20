@@ -9,6 +9,4 @@ export interface CreditCard {
     recommendedScore: string;
     annualFee: number;
     termsAndConditions: string;
-    createdDate: string;
-    updatedDate: string;
 }

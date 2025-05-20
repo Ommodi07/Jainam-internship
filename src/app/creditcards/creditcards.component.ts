@@ -23,7 +23,7 @@ export class CreditcardsComponent {
   constructor(private creditCardsService: CreditcardsService) {
     this.creditCardsService.getCreditCards().subscribe((data:CreditCard[]) => {
       this.creditcards = data;
-
+      console.log(this.creditcards);
       this.dataSource = new MatTableDataSource(this.creditcards);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
