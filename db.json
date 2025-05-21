@@ -2,7 +2,7 @@
   "creditcards": [
     {
       "id": "99312879",
-      "name": "Em Poupard",
+      "name": "judio lous",
       "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.",
       "bankName": "Mitsubishi UFJ Investor Services and Banking (Luxembourg) S.A.",
       "maxCredit": 7586,
@@ -54,7 +54,7 @@
       "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
       "bankName": "Arainn Credit Union Limited",
       "maxCredit": 1696,
-      "interestRate": 2,
+      "interestRate": 3,
       "active": false,
       "recommendedScore": "100-500",
       "annualFee": 420.27,
