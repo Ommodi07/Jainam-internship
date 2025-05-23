@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Sign In</h2>
+      <p class="login-subtitle">Please enter your credentials</p>
+    </div>
+
+    <label class="login-label" for="username">Username</label>
+    <input
+      id="username"
+      type="text"
+      class="login-input"
+      [(ngModel)]="username"
+      autocomplete="username"
+    />
+
+    <label class="login-label" for="password">Password</label>
+    <input
+      id="password"
+      type="password"
+      class="login-input"
+      [(ngModel)]="password"
+      autocomplete="current-password"
+      (keydown.enter)="login()"
+    />
+
+    <button class="login-button" (click)="login()">Login</button>
+
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<mat-toolbar class="header-toolbar">
+  <button mat-icon-button (click)="toggleSidebar()" class="example-icon"
+    aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="app-title"> <a href="/home" style="text-decoration: none; color: white;">CreditCard Management Portal</a></span>
+  <span class="header-spacer"></span>
+  <ng-container *ngIf="authService.isLoggedIn(); else loginTemplate">
+    <button mat-button color="accent" (click)="logout()">
+      <mat-icon>logout</mat-icon>Logout
+    </button>
+  </ng-container>
+  <ng-template #loginTemplate>
+    <button mat-button color="accent" routerLink="/login">
+      <mat-icon>login</mat-icon>Login
+    </button>
+  </ng-template>
+</mat-toolbar>
+
+<mat-drawer-container class="content-container">
+  <mat-drawer mode="side" [opened]="sidebarOpen" class="sidebar">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content class="main-content">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

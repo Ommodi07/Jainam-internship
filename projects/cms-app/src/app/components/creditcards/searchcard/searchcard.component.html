@@ -1,0 +1,32 @@
+<div class="search-container">
+  <h2>Search Credit Card</h2>
+
+  <div class="form-group">
+    <label for="searchType">Search By:</label>
+    <div style="width: 100px;">
+      <select [(ngModel)]="searchType" (ngModelChange)="onSearchTypeChange()" id="searchType">
+        <option value="id">ID</option>
+        <option value="name">Name</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" [(ngModel)]="searchTerm" [placeholder]="msg" (keydown.enter)="searchCard()" />
+    <button (click)="searchCard()">Search</button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf="searchResult.length > 0" class="results-container">
+    <h3>Search Results:</h3>
+    <div class="card-list">
+      <div *ngFor="let card of searchResult" class="card">
+        <h4>{{ card.name }}</h4>
+        <p><strong>ID:</strong> {{ card.id }}</p>
+        <p><strong>Bank:</strong> {{ card.bankName }}</p>
+        <a [routerLink]="['../../creditcards/view', card.id]"><button>View Details</button></a>
+      </div>
+    </div>
+  </div>
+</div>
